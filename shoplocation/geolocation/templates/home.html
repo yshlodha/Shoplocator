@@ -1,0 +1,18 @@
+<h1>Shop Locator App</h1>
+
+<form method="post" action="./">
+    {% csrf_token %}
+    <table>
+        {{ form }}
+    </table>
+    <input type="submit" value="Search" />
+</form>
+
+{% if shops %}
+<h2>Shops near you</h2>
+<ul>
+    {% for shop in shops %}
+    <li><b>{{ shop.name }}</b>: distance: {{ shop.distance }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
